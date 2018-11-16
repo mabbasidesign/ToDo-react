@@ -1,25 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Todos from './todos';
 
 class App extends Component {
+  state = {
+    todos: [
+      {id: 1, content: 'buy some milk'},
+      {id: 2, content: 'play mario cart'},
+      {id: 3, content: 'buy some milk'},
+      {id: 4, content: 'play mario cart'}
+    ]
+  }
+
+  deleteTodos = id => {
+    const todos = this.state.todos.filter(t => t.id !== id);
+    this.setState({ todos });
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="todo-app container">
+      <h1 className="center blue-text">Todo's</h1>
+        <Todos
+        todos={this.state.todos}
+        deleteTodos={this.deleteTodos}
+        />
       </div>
     );
   }
