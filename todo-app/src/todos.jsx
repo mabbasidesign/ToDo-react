@@ -29,16 +29,15 @@
 
 
 
-
 import React, { Component } from 'react';
 
 const Todos = (props) => {
     return ( 
         <div className="todos collection">
-            <ul className="collection-item" key={props.todos.id} >
+            <ul className="collection-item">
             { props.todos.map(t => {
                 return (
-                    <li className="collection-item">{t.content}
+                    <li key={t.id} className="collection-item">{t.content}
                     <button
                     className="waves-effect waves-light btn-large red"
                     onClick={() => {props.deleteTodos(t.id)}}
