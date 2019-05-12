@@ -29,7 +29,7 @@
 
 
 
-import React, { Component } from 'react';
+import React from 'react';
 
 const Todos = (props) => {
     return ( 
